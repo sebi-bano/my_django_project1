@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>image upload</title>
+        <style>
+            div.demo {text-align: center;}
+            div.demo {padding:40px;}
+            h1 {
+                margin-bottom:20px;
+            }
+            div.cool{
+                columns: sm -4px;
+                display: inline-block;
+            }
+            div.don{
+                margin: 3;
+                display: inline-block;
+            }
+        
+        </style>
+       
+    </head>
+<body>
+    <div class="container" >
+        <div  class="demo" style="background:SlateBlue">
+            <h1 > upload image</h1>
+            <form action="" method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                {{form}}
+                <input type="submit"  value="upload" style="background:red">
+
+            </form>
+
+        </div>
+        <div class="row"><br>
+            {% for x in img %}
+            <div class="cool">
+                <div class="don">
+                    <img src="{{x.photo.url}}" alt="" style="width:300px;height:200px;" >
+                    <div>
+                        <small>{{x.date}}
+
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
